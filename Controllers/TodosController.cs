@@ -13,11 +13,11 @@ namespace MyTaskAPI.Controllers
     [ApiController]
     public class ToDosController : ControllerBase
     {
-        private TodoService _todoservice;
+        private readonly ITodoRepository _todoservice;
 
-        public ToDosController()
+        public ToDosController(ITodoRepository _repository)
         {
-            _todoservice = new TodoService();
+            _todoservice = _repository;
         }
 
         [HttpGet("(Id)")]
